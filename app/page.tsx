@@ -1,66 +1,119 @@
-import { Metadata } from "next"
-import { Button } from "components/Button/Button"
+// app/page.tsx
 
-import { LP_GRID_ITEMS } from "lp-items"
-
-export const metadata: Metadata = {
-  title: "Next.js Enterprise Boilerplate",
+export const metadata = {
+  title: "Quiet Hand Creative",
+  description: "Poised · Mindful · Modern · Tasteful · Credible",
+  openGraph: {
+    title: "Quiet Hand Creative",
+    description: "Poised · Mindful · Modern · Tasteful · Credible",
+  },
   twitter: {
     card: "summary_large_image",
+    title: "Quiet Hand Creative",
+    description: "Poised · Mindful · Modern · Tasteful · Credible",
   },
-  openGraph: {
-    url: "https://next-enterprise.vercel.app/",
-    images: [
-      {
-        width: 1200,
-        height: 630,
-        url: "https://raw.githubusercontent.com/Blazity/next-enterprise/main/.github/assets/project-logo.png",
-      },
-    ],
-  },
-}
+};
 
-export default function Web() {
+export default function Home() {
   return (
-    <>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="mx-auto grid max-w-(--breakpoint-xl) px-4 py-8 text-center lg:py-16">
-          <div className="mx-auto place-self-center">
-            <h1 className="mb-4 max-w-2xl text-4xl leading-none font-extrabold tracking-tight md:text-5xl xl:text-6xl dark:text-white">
-              Next.js Enterprise Boilerplate
-            </h1>
-            <p className="mb-6 max-w-2xl font-light text-gray-500 md:text-lg lg:mb-8 lg:text-xl dark:text-gray-400">
-              Jumpstart your enterprise project with our feature-packed, high-performance Next.js boilerplate!
-              Experience rapid UI development, AI-powered code reviews, and an extensive suite of tools for a smooth and
-              enjoyable development process.
-            </p>
-            <Button href="https://github.com/Blazity/next-enterprise" className="mr-3">
-              Get started
-            </Button>
-            <Button
-              href="https://vercel.com/new/git/external?repository-url=https://github.com/Blazity/next-enterprise"
-              intent="secondary"
-            >
-              Deploy Now
-            </Button>
-          </div>
+    <main className="min-h-screen bg-neutral-950 text-white">
+      {/* Hero */}
+      <section className="text-center py-20 border-b border-neutral-800">
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
+          Quiet Hand Creative
+        </h1>
+        <p className="text-neutral-400 max-w-2xl mx-auto text-lg">
+          Poised · Mindful · Modern · Tasteful · Credible
+        </p>
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <a href="#contact" className="rounded-2xl bg-white/90 text-black px-6 py-3 text-sm font-medium hover:bg-white">
+            Work With Me
+          </a>
+          <a href="#portfolio" className="rounded-2xl border border-neutral-700 px-6 py-3 text-sm font-medium hover:bg-neutral-800">
+            See Work
+          </a>
         </div>
       </section>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="mx-auto max-w-(--breakpoint-xl) px-4 py-8 sm:py-16 lg:px-6">
-          <div className="justify-center space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0 lg:grid-cols-3">
-            {LP_GRID_ITEMS.map((singleItem) => (
-              <div key={singleItem.title} className="flex flex-col items-center justify-center text-center">
-                <div className="bg-primary-100 dark:bg-primary-900 mb-4 flex size-10 items-center justify-center rounded-full p-1.5 text-blue-700 lg:size-12">
-                  {singleItem.icon}
-                </div>
-                <h3 className="mb-2 text-xl font-bold dark:text-white">{singleItem.title}</h3>
-                <p className="text-gray-500 dark:text-gray-400">{singleItem.description}</p>
+
+      {/* Panels */}
+      <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold mb-2">Sound</h2>
+          <p className="text-neutral-300 text-sm leading-relaxed">
+            Executive production & engineering. Session guitar/bass/vocals. Talent sourcing (musicians & writers).
+            Songwriting & ghostwriting. Audio cleanup & restoration. Scoring. Broadcast formatting. Podcast & audiobook editing.
+          </p>
+        </div>
+        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold mb-2">Vision</h2>
+          <p className="text-neutral-300 text-sm leading-relaxed">
+            Production management for fashion, film & commercial shoots. Budgets, crews, logistics, delivery. BTS & social content.
+            Design assets, screenprinting design, album artwork. Line production, storyboarding, script consulting.
+          </p>
+        </div>
+        <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-8">
+          <h2 className="text-2xl font-bold mb-2">Form</h2>
+          <p className="text-neutral-300 text-sm leading-relaxed">
+            Consulting for creative businesses: workflow design, growth strategy, process audits, templates, scaling frameworks,
+            team systems. Structure that lets creativity thrive.
+          </p>
+        </div>
+      </section>
+
+      {/* Portfolio */}
+      <section id="portfolio" className="max-w-6xl mx-auto px-6 pb-16">
+        <div className="flex items-end justify-between mb-6">
+          <h3 className="text-3xl font-bold">Selected Work</h3>
+          <a href="#contact" className="text-sm text-neutral-300 hover:text-white">
+            Get the full portfolio →
+          </a>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i}>
+              <div className="aspect-video rounded-2xl bg-neutral-900 border border-neutral-800 grid place-items-center">
+                <span className="text-neutral-500 text-sm">Project {i + 1}</span>
               </div>
-            ))}
-          </div>
+              <div className="mt-3">
+                <p className="font-medium">Project Title {i + 1}</p>
+                <p className="text-sm text-neutral-400">Role • Year • Medium</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
-    </>
-  )
+
+      {/* Contact */}
+      <section id="contact" className="max-w-3xl mx-auto px-6 pb-24">
+        <h3 className="text-3xl font-bold mb-3">Let’s work</h3>
+        <p className="text-neutral-300 mb-6">
+          Tell me about your project, timeline, and goals. I’ll get back quickly with next steps.
+        </p>
+        <form className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input placeholder="Name" className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 outline-none" />
+            <input type="email" placeholder="Email" className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 outline-none" />
+          </div>
+          <input placeholder="Company / Artist name" className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 outline-none" />
+          <input placeholder="Service of interest (Sound / Vision / Form / Process)" className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 outline-none" />
+          <textarea placeholder="Project details" className="bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 min-h-[140px] outline-none" />
+          <button className="rounded-xl bg-white/90 text-black px-6 py-3 text-sm font-medium hover:bg-white w-max">
+            Send Inquiry
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-neutral-800 py-10">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-neutral-400 text-sm">© {new Date().getFullYear()} Quiet Hand Creative</p>
+          <div className="flex items-center gap-4 text-neutral-400 text-sm">
+            <a href="#" className="hover:text-white">Instagram</a>
+            <a href="#" className="hover:text-white">LinkedIn</a>
+            <a href="mailto:hello@example.com" className="hover:text-white">Email</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
 }
